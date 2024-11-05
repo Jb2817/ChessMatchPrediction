@@ -30,7 +30,30 @@ CMP Trains Models
     The model with the highest accuracy score is chosen
 
 CMP calls main.py
-  - Through a series of questions and answers CMP records the same information from the user that would be seen in a record of the testing dataset. With this the model makes a prediction and uses the response to train itself again. 
+  - Through a series of questions and answers CMP records the same information from the user that would be seen in a record of the testing dataset. With this the model makes a prediction and uses the response to train itself again.
+
+
+
+
+
+<img width="726" alt="Screenshot 2024-11-05 at 1 13 47 PM" src="https://github.com/user-attachments/assets/d3322785-d6d9-4358-89a4-1c9650272754">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img width="734" alt="Screenshot 2024-11-05 at 1 15 59 PM" src="https://github.com/user-attachments/assets/3596a66c-3375-4385-aa59-6b00d42f2c0b">
+
 
 
 
