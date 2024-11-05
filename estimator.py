@@ -81,15 +81,15 @@ def construct_models(storage, X_train, X_test, y_train, y_test):
     y_pred = nb.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     storage.append((nb, accuracy))
-    print("Naive Bayes Accuracy:", accuracy)
-
+    print("Naive Bayes Accuracy: {:.2f}".format(accuracy))
+    
     from sklearn.linear_model import LogisticRegression
     lr = LogisticRegression(multi_class='multinomial', solver='lbfgs')
     lr.fit(X_train, y_train)
     y_pred = lr.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     storage.append((lr, accuracy))
-    print("Linear Regression Accuracy:", accuracy)
+    print("Linear Regression Accuracy: {:.2f}".format(accuracy))
 
     from sklearn.svm import SVC
     svm = SVC(decision_function_shape='ovo')
@@ -97,14 +97,15 @@ def construct_models(storage, X_train, X_test, y_train, y_test):
     y_pred = svm.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     storage.append((svm, accuracy))
-    print("SVM Accuracy:", accuracy)
+    print("SVM Accuracy: {:.2f}".format(accuracy))
 
+    from sklearn.ensemble import RandomForestClassifier
     rf = RandomForestClassifier()
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     storage.append((rf, accuracy))
-    print("Random Forest Accuracy:", accuracy)
+    print("Random Forest Accuracy: {:.2f}".format(accuracy))
 
     from xgboost import XGBClassifier
     xgb = XGBClassifier()
@@ -112,7 +113,7 @@ def construct_models(storage, X_train, X_test, y_train, y_test):
     y_pred = xgb.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     storage.append((xgb, accuracy))
-    print("XGBoost Accuracy:", accuracy)
+    print("XGBoost Accuracy: {:.2f}".format(accuracy))
 
     from sklearn.neighbors import KNeighborsClassifier
     knn = KNeighborsClassifier(n_neighbors=3)
@@ -120,7 +121,7 @@ def construct_models(storage, X_train, X_test, y_train, y_test):
     y_pred = knn.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     storage.append((knn, accuracy))
-    print("KNN Accuracy:", accuracy)
+    print("KNN Accuracy: {:.2f}".format(accuracy))
 
     from sklearn.neural_network import MLPClassifier
     nn = MLPClassifier(hidden_layer_sizes=(100,), max_iter=1000)
@@ -128,8 +129,7 @@ def construct_models(storage, X_train, X_test, y_train, y_test):
     y_pred = nn.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     storage.append((nn, accuracy))
-    print("Neural Network Accuracy:", accuracy)
-
+    print("Neural Network Accuracy: {:.2f}".format(accuracy))
     storage.sort(key=lambda x: x[1], reverse=True)
     return storage, storage[0]
 

@@ -27,9 +27,6 @@ def analyze_lr_model(model, feature_names):
     importance_df['Average Absolute Impact'] = np.abs(coefficients).mean(axis=0)
     importance_df = importance_df.sort_values('Average Absolute Impact', ascending=False)
     
-    print("\nMODEL ANALYSIS REPORT")
-    print("=" * 50)
-    
     print("\nTop 3 Most Important Features:")
     print("-" * 50)
     for idx, row in importance_df.head(3).iterrows():
@@ -89,7 +86,7 @@ def main(models, X_train, y_train, latest_win_rate, latest_draw_rate):
     print(f"Model accuracy: {sorted(models, key=lambda x: x[1], reverse=True)[0][1]:.2%}")
     
     if isinstance(best_model, LogisticRegression):
-        print("\nAnalyzing Linear Regression Model...")
+        print("\nAnalyzing Regression Model...")
         coef_df, importance_df = analyze_lr_model(best_model, X_train.columns)
         
         print("\nLogistic Regression Formula for Win Probability:")
